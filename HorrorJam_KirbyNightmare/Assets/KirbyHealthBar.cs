@@ -4,7 +4,7 @@ using System.Collections;
 
 public class KirbyHealthBar : MonoBehaviour {
 
-	Slider kirbyHealth;
+	public Slider kirbyHealth;
 
 	// Use this for initialization
 	void Start () {

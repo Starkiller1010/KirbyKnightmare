@@ -6,7 +6,6 @@ public enum KirbyStates
 {
 	BEAM,
 	BYE,
-	CLEAR,
 	FIRE,
 	GOAL,
 	MISS,
@@ -16,13 +15,21 @@ public enum KirbyStates
 	SPARK
 }
 
+public enum KirbyPowers
+{
+	BEAM,
+	FIRE,
+	NONE,
+	SPARK
+}
+
 public class KirbyStatePicture : MonoBehaviour {
 
-	RawImage powerPicture;
+	public RawImage powerPicture;
+	public KirbyCode Player;
 
 	// Use this for initialization
 	void Start () {
-		powerPicture = GetComponent<RawImage> ();
 	}
 	
 	// Update is called once per frame
@@ -39,9 +46,6 @@ public class KirbyStatePicture : MonoBehaviour {
 			break;
 		case KirbyStates.BYE:
 			newTexture = Resources.Load ("bye") as Texture;
-			break;
-		case KirbyStates.CLEAR:
-			newTexture = Resources.Load ("clear") as Texture;
 			break;
 		case KirbyStates.FIRE:
 			newTexture = Resources.Load ("fire") as Texture;

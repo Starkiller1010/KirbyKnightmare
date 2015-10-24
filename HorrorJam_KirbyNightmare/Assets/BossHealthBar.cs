@@ -4,7 +4,7 @@ using System.Collections;
 
 public class BossHealthBar : MonoBehaviour {
 
-	Slider bossHealth;
+	public Slider bossHealth;
 
 	// Use this for initialization
 	void Start () {

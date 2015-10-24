@@ -4,7 +4,7 @@ using System.Collections;
 
 public class KirbyLives : MonoBehaviour {
 
-	private Text lifeLine;
+	public Text lifeLine;
 	// Use this for initialization
 	void Start () {
 		lifeLine = GetComponent<Text> ();
