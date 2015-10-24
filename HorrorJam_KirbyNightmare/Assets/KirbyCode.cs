@@ -63,7 +63,7 @@ public class KirbyCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
+       
         
 	}
 
@@ -74,6 +74,13 @@ public class KirbyCode : MonoBehaviour {
             healthcount--;
             //if(something is in mouth or has ability)
             //{ }
+        }
+
+        if (other.gameObject.tag == "Ground")
+        {
+            Debug.Log("Resetting jump");
+            Grounded = true;
+            jumpcount = 0;
         }
     }
 
@@ -121,7 +128,7 @@ public class KirbyCode : MonoBehaviour {
                 jumpcount++;
                 if (jumpcount == 5)
                 {
-                    //Avatar = sprite that puffs air;
+                    //Animation sprite that puffs;
                 }
             }
 
@@ -145,7 +152,16 @@ public class KirbyCode : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            
+            if(Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                transform.Translate(new Vector3(2.0f * Time.deltaTime, 0.0f, 0.0f));
+                if (reversed)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                    reversed = false;
+                }
+            }
+            else
             {
                 //Avatar = walking
                 transform.Translate(new Vector3(1.0f * Time.deltaTime, 0.0f, 0.0f));
@@ -193,7 +209,7 @@ public class KirbyCode : MonoBehaviour {
               //Release Ability
         //}
    
-         SendMessage("DoStuff", message);
+         //SendMessage("DoStuff", message);
     }
 
 
