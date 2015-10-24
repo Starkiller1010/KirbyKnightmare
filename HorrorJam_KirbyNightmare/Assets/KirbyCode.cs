@@ -12,7 +12,7 @@ public class KirbyCode : MonoBehaviour {
     private int jumpcount;
     private Sprite Avatar;
     private bool IsCrouched = false;
-    public LayerMask layer;
+    public LayerMask Groundlayer;
     private bool iSGrounded;
     private bool isDashing;
     public float delay = 0.5f;
@@ -20,6 +20,34 @@ public class KirbyCode : MonoBehaviour {
     private float _lastbuttonpress;
     private float _lastdash;
     Animator anim;
+    KirbyAction actions;
+    KirbyActions message;
+
+    public bool Grounded { get { return iSGrounded; } set { iSGrounded = value; } }
+
+
+    //enum KirbyActions
+    //{
+    //    K_STAND,
+    //    K_WALKLEFT,
+    //    K_WALKRIGHT,
+    //    K_DASH,
+    //    K_JUMP,
+    //    K_SUCK,
+    //    K_BLOW,
+    //    K_SPIT,
+    //    K_CLIMB,
+    //    K_COPY,
+    //    K_ENTER_DOOR,
+    //    K_ATTACK,
+    //    K_CROUCH,
+    //    K_SLIDE,
+    //    K_FIRE,
+    //    K_ICE,
+    //    K_SPARK,
+    //    K_BEAM,
+    //    K_GET_HIT
+    //}
 	void Start () 
     {
         localVel = GetComponent<Rigidbody2D>().velocity;
@@ -27,6 +55,7 @@ public class KirbyCode : MonoBehaviour {
         reversed = false;
         isDashing = false;
         anim = GetComponent<Animator>();
+        message = KirbyActions.K_IDLE;
 
 	}
 
@@ -34,12 +63,6 @@ public class KirbyCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
-        if(GetComponent<BoxCollider2D>().IsTouchingLayers(layer))
-        {
-            iSGrounded = true;
-            jumpcount = 0;
-        }
 
         
 	}
@@ -53,6 +76,23 @@ public class KirbyCode : MonoBehaviour {
             //{ }
         }
     }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Door")
+        {
+            if(Input.GetKeyDown(KeyCode.W))
+            {
+               // message = KirbyActions.K_ENTER_DOOR;
+                //Enter Door Animation
+
+                //Application.LoadLevel("NextLevel");
+            }
+        }
+
+        //if (message != null)
+        //SendMessage("DoStuff", message);
+    }
     
 
     void FixedUpdate()
@@ -65,15 +105,16 @@ public class KirbyCode : MonoBehaviour {
         //WASD controls
         if (Input.GetKeyDown(KeyCode.W))
         {
+            message = KirbyActions.K_JUMP;
             //Jump
-            if (jumpcount == 0 && iSGrounded)
+            if (jumpcount == 0 && Grounded)
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 225.0f));
                 //transform.Translate(new Vector3(0.0f, 0.5f, 0.0f));
-                iSGrounded = false;
+                Grounded = false;
                 jumpcount++;
             }
-            else if (jumpcount <= 5 && !iSGrounded)
+            else if (jumpcount <= 5 && !Grounded)
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 125.0f));
                 //transform.Translate(new Vector3(0.0f, 0.4f, 0.0f));
@@ -84,9 +125,6 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
 
-
-            //EnterDoorWays
-            //Application.LoadLevel("EnterLevelOrIDnum");
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -124,6 +162,8 @@ public class KirbyCode : MonoBehaviour {
         else
         {
             GetComponent<Animator>().SetBool("move", false);
+            message = KirbyActions.K_IDLE;
+
         }
 
         //Action buttons
@@ -152,6 +192,8 @@ public class KirbyCode : MonoBehaviour {
         //{
               //Release Ability
         //}
+   
+         SendMessage("DoStuff", message);
     }
 
 
@@ -175,5 +217,6 @@ public class KirbyCode : MonoBehaviour {
         _lastdash = Time.time;
         transform.Translate(4.0f * Time.deltaTime, 0.0f, 0.0f);
     }
+
 
 }
