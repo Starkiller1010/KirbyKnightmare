@@ -1,6 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+public enum KirbyStates
+{
+    //Exit Game
+    BYE,
+    //Finish Stage
+    GOAL,
+    //Death
+    MISS,
+    //Without Powers
+    NORMAL,
+    //Damaged
+    OUCH,
+    //Swallowed with no power gain
+    NOTHING,
+    //Swallowed with Fire gain
+    FIRE,
+    //Swallowed with Beam gain
+    BEAM,
+    //Swallowed with Spark gain
+    SPARK
+}
+
 public class KirbyCode : MonoBehaviour {
 
 	// Use this for initialization
@@ -17,8 +40,6 @@ public class KirbyCode : MonoBehaviour {
     private bool isDashing;
     public float delay = 0.5f;
     public float dashed = 2.0f;
-    private float _lastbuttonpress;
-    private float _lastdash;
     public Sprite Airpuff1;
     public Sprite Airpuff2;
     //Animator anim;
@@ -28,6 +49,13 @@ public class KirbyCode : MonoBehaviour {
     private bool MouthFull;
     public BoxCollider2D SuckZone;
     public bool inhaling;
+
+    private float _lastbuttonpress;
+    private float _taptime;
+    private bool tapping;
+    bool doubletap = false;
+[Tooltip("KirbyStates enum displayed in UI picture")] 
+    public KirbyStates currState;
 
 
     public bool Grounded { get { return iSGrounded; } set { iSGrounded = value; } }
@@ -63,6 +91,7 @@ public class KirbyCode : MonoBehaviour {
         isDashing = false;
         //anim = GetComponent<Animator>();
        // message = KirbyActions.K_IDLE;
+        currState = KirbyStates.SPARK;
 
 	}
 
@@ -78,6 +107,11 @@ public class KirbyCode : MonoBehaviour {
         if(isSliding && localVel.velocity.x == 0.0f)
         {
             isSliding = false;
+        }
+
+        if(healthcount == 0)
+        {
+            currState = KirbyStates.MISS;
         }
                     
 	}
@@ -137,11 +171,20 @@ public class KirbyCode : MonoBehaviour {
 
 
     }
+
+    void dashleft()
+    {
+        while(Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
+        }
+    }
     
 
     void FixedUpdate()
     {
-
+        doubletap = false;
+		
 		//float move = Input.GetAxis("Horizontal");
 
 		//anim.SetFloat("move", Mathf.Abs(move));
@@ -253,39 +296,18 @@ public class KirbyCode : MonoBehaviour {
 			//if(Input.GetKey(KeyCode.RightShift))
 			//{
 			//Release Ability
-			//}
-   
+			//}  
 			//SendMessage("DoStuff", message);
 		}
 	}
 
-    float VelLimit(float velocity)
-    {
-        velocity = velocity % 5.0f;
-        return velocity;
-    }
-
-    bool isDashPossible
-    {
-        get
-        {
-            return Time.time - _lastdash > dashed;
-        }
-    }
-
-     void DoDash()
-    {
-        Debug.Log("In DoDash()");
-        _lastdash = Time.time;
-        transform.Translate(4.0f * Time.deltaTime, 0.0f, 0.0f);
-    }
 
     void EnemySuckedIn(GameObject enemy)
      {
-        if(enemy.transform.FindChild("WEAPON"))
-        {
+        //if()
+        //{
 
-        }
+        //}
      }
 
 }
