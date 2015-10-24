@@ -10,11 +10,14 @@ public class KirbyCode : MonoBehaviour {
     private int jumpcount = 7;
     private Sprite Avatar;
     private bool IsCrouched = false;
-	void Start () 
+    Animator anim;
+
+    void Start () 
     {
         localVel = GetComponent<Rigidbody2D>().velocity;
         Avatar = GetComponent<SpriteRenderer>().sprite;
-	}
+        anim = GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -81,4 +84,15 @@ public class KirbyCode : MonoBehaviour {
         velocity = velocity % 5.0f;
         return velocity;
     }
+
+    void FixedUpdate()
+    {
+
+        float move = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("move", Mathf.Abs(move));
+    }
+
+
+
 }
