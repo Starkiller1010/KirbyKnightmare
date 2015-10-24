@@ -10,6 +10,7 @@ public class KirbyCode : MonoBehaviour {
     private int jumpcount;
     private Sprite Avatar;
     private bool IsCrouched = false;
+<<<<<<< HEAD
     public LayerMask layer;
     private bool iSGrounded;
     private bool isDashing;
@@ -24,6 +25,16 @@ public class KirbyCode : MonoBehaviour {
         reversed = false;
         isDashing = false;
 	}
+=======
+    Animator anim;
+
+    void Start () 
+    {
+        localVel = GetComponent<Rigidbody2D>().velocity;
+        Avatar = GetComponent<SpriteRenderer>().sprite;
+        anim = GetComponent<Animator>();
+    }
+>>>>>>> refs/remotes/origin/Jose
 	
 	// Update is called once per frame
 	void Update () 
@@ -118,6 +129,7 @@ public class KirbyCode : MonoBehaviour {
         return velocity;
     }
 
+<<<<<<< HEAD
     bool isDashPossible
     {
         get
@@ -125,4 +137,16 @@ public class KirbyCode : MonoBehaviour {
             return Time.time - _lastdash > dashed;
         }
     }
+=======
+    void FixedUpdate()
+    {
+
+        float move = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("move", Mathf.Abs(move));
+    }
+
+
+
+>>>>>>> refs/remotes/origin/Jose
 }
