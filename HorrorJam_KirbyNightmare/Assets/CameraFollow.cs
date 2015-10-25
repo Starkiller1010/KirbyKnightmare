@@ -7,27 +7,27 @@ public class CameraFollow : MonoBehaviour {
 	[SerializeField]
 	GameObject Player;
 	void Start () 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	{
 		transform.position = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
-=======
+//=======
     {
         transform.position = new Vector3(Player.transform.position.x + Camera.main.orthographicSize, transform.position.y, transform.position.z);
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	{
 		transform.position = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
-		
-	}
-}
-=======
-    {
+
+//=======
+{
         transform.position = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
-	}
+}	
+}
 
     void OnTriggerEnter2D(Collision2D other)
     {
@@ -37,4 +37,4 @@ public class CameraFollow : MonoBehaviour {
         }
     }
 }
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard

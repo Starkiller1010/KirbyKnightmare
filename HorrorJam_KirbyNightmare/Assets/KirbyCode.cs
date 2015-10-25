@@ -321,7 +321,7 @@ public class KirbyCode : MonoBehaviour
                     reversed = true;
                 }
             }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
             GetComponent<Animator>().SetBool("move", true);
 //<<<<<<< HEAD
@@ -337,13 +337,13 @@ public class KirbyCode : MonoBehaviour
             GetComponent<Animator>().SetBool("move", true);
 //>>>>>>> parent of 93fe8eb... Kirby Door enter works
             if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
-=======
+//=======
             GetComponent<Animator>().SetBool("move", true);
             if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
                 GetComponent<Rigidbody2D>().gravityScale = 0.2f;
                 
             if (Grounded)
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
                 GetComponent<Animator>().Play("WalkingCycle");
             //GetComponent<Animator>().SetBool("move", true);
             //if(Grounded)
@@ -378,7 +378,7 @@ public class KirbyCode : MonoBehaviour
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //<<<<<<< HEAD
             
@@ -388,12 +388,12 @@ public class KirbyCode : MonoBehaviour
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
 /*>>>>>>>*/ //parent of 93fe8eb... Kirby Door enter works
-=======
+//=======
             if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
                 GetComponent<Rigidbody2D>().gravityScale = 0.2f;
             if (Grounded)
                 GetComponent<Animator>().Play("WalkingCycle");
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
 
 
         }
@@ -410,8 +410,8 @@ public class KirbyCode : MonoBehaviour
             {
                 SuckZone.GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<Animator>().SetBool("isSucking", false);
-                if (particles.isPlaying)
-                    particles.Stop();
+              //  if (particles.isPlaying)
+                   // particles.Stop();
                 
                 
             }
@@ -481,7 +481,7 @@ public class KirbyCode : MonoBehaviour
                 }
             }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //=======
             ////Sucking Code
@@ -492,8 +492,8 @@ public class KirbyCode : MonoBehaviour
                 
             //If player has an ability
 //>>>>>>> winston
-=======
->>>>>>> refs/remotes/origin/Gerard
+//=======
+//>>>>>>> refs/remotes/origin/Gerard
         }
 
         //Extra Button
@@ -526,11 +526,11 @@ public class KirbyCode : MonoBehaviour
 
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //=======
-=======
->>>>>>> refs/remotes/origin/Gerard
+//=======
+//>>>>>>> refs/remotes/origin/Gerard
     void Death()
     {
         //Remind Jesse about death
@@ -542,24 +542,27 @@ public class KirbyCode : MonoBehaviour
         else
             Application.LoadLevel(Application.loadedLevelName);
     }
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //<<<<<<< HEAD
 //>>>>>>> parent of 93fe8eb... Kirby Door enter works
 //=======
 //>>>>>>> parent of 93fe8eb... Kirby Door enter works
-}
-=======
+
+//=======
+
+
 
     void LeaveArea()
     {
         //other.gameObject.SendMessage("LoadNextLevel");
         Debug.Log("EnteringLoad");
-        if (Application.loadedLevelName == "Level1QuickTest")
-            Application.LoadLevel("Level2QuickTest");
-        else if (Application.loadedLevelName == "Level2QuickTest")
-            Application.LoadLevel("Level3QuickTest");
-        else if (Application.loadedLevelName == "Level3QuickTest")
+        if (Application.loadedLevelName == "Level1")
+            Application.LoadLevel("Level2");
+        else if (Application.loadedLevelName == "Level2")
+            Application.LoadLevel("Level3");
+        else if (Application.loadedLevelName == "Level3")
             Application.LoadLevel("EvilTreeBoss");
     }
 }
->>>>>>> refs/remotes/origin/Gerard
+
+//>>>>>>> refs/remotes/origin/Gerard
