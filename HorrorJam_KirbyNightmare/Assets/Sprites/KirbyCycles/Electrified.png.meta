@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 4d3849939284be54e8fdab87c9a22669
-timeCreated: 1445738037
+guid: bcac0e7f11199b6439a2b1e0388b8846
+timeCreated: 1445777959
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InhaleStart_0
-    21300002: InhaleStart_1
-    21300004: InhaleStart_2
-    21300006: InhaleStart_3
-    21300008: InhaleStart_4
+    21300000: Electrified_0
+    21300002: Electrified_1
+    21300004: Electrified_2
+    21300006: Electrified_3
+    21300008: Electrified_4
+    21300010: Electrified_5
+    21300012: Electrified_6
+    21300014: Electrified_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +57,83 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: InhaleStart_0
+    - name: Electrified_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 27
-        height: 19
+        y: 3
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_1
+    - name: Electrified_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 37
         y: 0
-        width: 27
-        height: 22
+        width: 32
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_2
+    - name: Electrified_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 74
         y: 0
-        width: 27
-        height: 23
+        width: 30
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_3
+    - name: Electrified_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 28
-        height: 23
+        x: 109
+        y: 1
+        width: 36
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_4
+    - name: Electrified_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 158
         y: 0
-        width: 29
-        height: 24
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Electrified_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Electrified_6
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 2
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Electrified_7
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 1
+        width: 40
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

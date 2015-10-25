@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 4d3849939284be54e8fdab87c9a22669
-timeCreated: 1445738037
+guid: cadac94e89c24c94293a9bdb99e4723d
+timeCreated: 1445777982
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InhaleStart_0
-    21300002: InhaleStart_1
-    21300004: InhaleStart_2
-    21300006: InhaleStart_3
-    21300008: InhaleStart_4
+    21300000: EnterDoor_0
+    21300002: EnterDoor_1
+    21300004: EnterDoor_2
+    21300006: EnterDoor_3
+    21300008: EnterDoor_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +54,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: InhaleStart_0
+    - name: EnterDoor_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 27
+        width: 22
         height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_2
+    - name: EnterDoor_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 27
         y: 0
-        width: 27
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnterDoor_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 23
         height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_3
+    - name: EnterDoor_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 83
         y: 0
-        width: 28
-        height: 23
+        width: 23
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_4
+    - name: EnterDoor_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 111
         y: 0
-        width: 29
-        height: 24
+        width: 24
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: 4d3849939284be54e8fdab87c9a22669
-timeCreated: 1445738037
+guid: 9b6baf755c829244ba8ac93e95551aa0
+timeCreated: 1445778015
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InhaleStart_0
-    21300002: InhaleStart_1
-    21300004: InhaleStart_2
-    21300006: InhaleStart_3
-    21300008: InhaleStart_4
+    21300000: IdleHoldInMouth_0
+    21300002: IdleHoldInMouth_1
+    21300004: IdleHoldInMouth_2
+    21300006: IdleHoldInMouth_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +53,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: InhaleStart_0
+    - name: IdleHoldInMouth_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 27
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 27
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_4
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 0
         width: 29
-        height: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IdleHoldInMouth_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IdleHoldInMouth_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: IdleHoldInMouth_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 0
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

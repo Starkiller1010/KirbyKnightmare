@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 4d3849939284be54e8fdab87c9a22669
-timeCreated: 1445738037
+guid: d2d67ea1460568c49a3ca92e806aa8ec
+timeCreated: 1445778087
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InhaleStart_0
-    21300002: InhaleStart_1
-    21300004: InhaleStart_2
-    21300006: InhaleStart_3
-    21300008: InhaleStart_4
+    21300000: SpitOut_0
+    21300002: SpitOut_1
+    21300004: SpitOut_2
+    21300006: SpitOut_3
+    21300008: SpitOut_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +54,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: InhaleStart_0
+    - name: SpitOut_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 19
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_1
+    - name: SpitOut_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 36
         y: 0
-        width: 27
-        height: 22
+        width: 31
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_2
+    - name: SpitOut_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 72
         y: 0
-        width: 27
-        height: 23
+        width: 26
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_3
+    - name: SpitOut_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 103
         y: 0
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_4
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 0
-        width: 29
+        width: 26
         height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SpitOut_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 0
+        width: 26
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

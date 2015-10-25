@@ -1,14 +1,13 @@
 fileFormatVersion: 2
-guid: 4d3849939284be54e8fdab87c9a22669
-timeCreated: 1445738037
+guid: f7de86925263b5d49b75b28290ebde91
+timeCreated: 1445777930
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: InhaleStart_0
-    21300002: InhaleStart_1
-    21300004: InhaleStart_2
-    21300006: InhaleStart_3
-    21300008: InhaleStart_4
+    21300000: Consume_0
+    21300002: Consume_1
+    21300004: Consume_2
+    21300006: Consume_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,53 +53,43 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: InhaleStart_0
+    - name: Consume_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 27
-        height: 19
+        width: 37
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_1
+    - name: Consume_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 42
         y: 0
-        width: 27
-        height: 22
+        width: 40
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_2
+    - name: Consume_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 87
         y: 0
-        width: 27
-        height: 23
+        width: 32
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_3
+    - name: Consume_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 124
         y: 0
-        width: 28
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: InhaleStart_4
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 0
-        width: 29
-        height: 24
+        width: 22
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
