@@ -10,7 +10,7 @@ public class BossHealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bossHealth = baws.healthcount;
+		health = baws.healthcount;
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class BossHealthBar : MonoBehaviour {
 			health = 5;
 		if (health < 0)
 			health = 0;
-		bossHealth.value = (float)health/5;
+		bossHealth.value = (float)health/5.0f;
 		if(health == 0)
 			bossHealth.fillRect.gameObject.SetActive (false);
 		else
