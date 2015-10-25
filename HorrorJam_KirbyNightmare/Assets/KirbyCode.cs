@@ -136,7 +136,8 @@ public class KirbyCode : MonoBehaviour
         if (healthcount <= 0)
         {
             currState = KirbyStates.MISS;
-            Death();
+            GetComponent<Animator>().SetBool("Death", true);
+            Invoke("Death",);
         }
 
         if (currState == KirbyStates.NOTHING && Time.time > delay + (2.0f * Time.deltaTime))
