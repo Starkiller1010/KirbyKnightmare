@@ -1,9 +1,22 @@
 fileFormatVersion: 2
-guid: 023a48f296531204d983626b400c01c9
-timeCreated: 1445755443
+<<<<<<< HEAD
+guid: f7939e7fac7d94d45945bfca9cbf7294
+timeCreated: 1445716604
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
+=======
+guid: a80c6aeaee08d484fb05a0108885e67d
+timeCreated: 1445740719
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Scarfy_0
+    21300002: Scarfy_1
+    21300004: Scarfy_2
+    21300006: Scarfy_3
+    21300008: Scarfy_4
+>>>>>>> winston
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,25 +43,92 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
+<<<<<<< HEAD
     aniso: -1
+=======
+    aniso: 16
+>>>>>>> winston
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
+<<<<<<< HEAD
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> winston
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+<<<<<<< HEAD
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+=======
+  spriteBorder: {x: 6, y: 2, z: 119, w: 21}
+>>>>>>> winston
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+<<<<<<< HEAD
     sprites: []
+=======
+    sprites:
+    - name: Scarfy_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 2
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Scarfy_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Scarfy_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Scarfy_3
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 2
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Scarfy_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> winston
   spritePackingTag: 
   userData: 
   assetBundleName: 
