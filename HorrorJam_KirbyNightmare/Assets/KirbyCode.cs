@@ -49,6 +49,7 @@ public class KirbyCode : MonoBehaviour {
     private bool MouthFull;
     public GameObject SuckZone;
     public bool inhaling;
+    public ParticleSystem particles;
 
     private float _lastbuttonpress;
     private float _taptime;
@@ -91,7 +92,8 @@ public class KirbyCode : MonoBehaviour {
         isDashing = false;
         //anim = GetComponent<Animator>();
        // message = KirbyActions.K_IDLE;
-        currState = KirbyStates.SPARK;
+        currState = KirbyStates.NORMAL;
+        SuckZone.GetComponent<ParticleSystem>().Stop();
 
 	}
 
@@ -109,9 +111,15 @@ public class KirbyCode : MonoBehaviour {
             isSliding = false;
         }
 
-        if(healthcount == 0)
+        if(healthcount <= 0)
         {
             currState = KirbyStates.MISS;
+            Death();
+        }
+
+        if(currState == KirbyStates.NOTHING && Time.time > delay + (2.0f * Time.deltaTime))
+        {
+            currState = KirbyStates.NORMAL;
         }
                     
 	}
@@ -228,27 +236,48 @@ public class KirbyCode : MonoBehaviour {
             //else
             //    _taptime = Time.time;
 
-            if (doubletap)
+            //if (doubletap)
+            //{
+            //    if (!reversed)
+            //    {
+            //        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+            //        reversed = true;
+            //    }
+            //    transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
+            //    //dashleft();
+            //}
+            //else
+            //{
+            //    if (!reversed)
+            //    {
+            //        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+            //        reversed = true;
+            //    }
+            //   //while (Input.GetKey(KeyCode.A))
+            //        transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
+            //}
+            if (Input.GetKey(KeyCode.LeftShift))
             {
+                transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
                 if (!reversed)
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
                     reversed = true;
                 }
-                transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
-                //dashleft();
             }
             else
             {
+                //Avatar = walking
+                transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
                 if (!reversed)
                 {
                     transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
                     reversed = true;
                 }
-               //while (Input.GetKey(KeyCode.A))
-                    transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
             }
-
+            GetComponent<Animator>().SetBool("move", true);
+            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
             GetComponent<Animator>().SetBool("move", true);
             if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
@@ -295,10 +324,12 @@ public class KirbyCode : MonoBehaviour {
             if(Grounded == true && !GetComponent<Animator>().GetBool("isSucking"))
                 GetComponent<Animator>().Play("Idle");
             IsCrouched = false;
-            if (SuckZone.activeInHierarchy)
-            {   
-                SuckZone.SetActive(false);
+            if (SuckZone.GetComponent<BoxCollider2D>().enabled)
+            {
+                SuckZone.GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<Animator>().SetBool("isSucking", false);
+                if (particles.isPlaying)
+                    particles.Stop();
             }
         }
 
@@ -306,18 +337,31 @@ public class KirbyCode : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             //Sucking Code
-            if (!SuckZone.activeInHierarchy)
+            if (!SuckZone.GetComponent<BoxCollider2D>().enabled)
             {
-                SuckZone.SetActive(true);
+                SuckZone.GetComponent<BoxCollider2D>().enabled = true;
                 GetComponent<Animator>().SetBool("isSucking", true);
-                SuckZone.GetComponent<ParticleSystem>().Play();
+                if (!particles.IsAlive(false) && !particles.isPlaying)
+                {
+                    Debug.Log("Particles not living. Creating Particles");
+                    particles.enableEmission = true;
+                    particles.Play();
+                }
                 //GetComponent<Animator>().Play("kirbySuck");
+            }
+
+            if(SuckZone.GetComponent<ParticleSystem>().isPlaying)
+            {
+                //if (!particles.IsAlive(false))
+                if (particles.particleCount < 10)
+                    Debug.Log("Particles Low");
+                else
+                    Debug.Log("Particles above average");
             }
             //If something in mouth
             if (MouthFull)
             {
-                GetComponent<Animator>().SetBool("isSucking", false);
-                SuckZone.SetActive(false);
+                
             }
             //If player has an ability
             if(currState > KirbyStates.NORMAL)
@@ -368,11 +412,23 @@ public class KirbyCode : MonoBehaviour {
     void EnemySuckedIn(GameObject enemy, int state)
      {
         MouthFull = true;
-        enemy.SetActive(false);
-        if(state > 5 && IsCrouched)
+        GetComponent<Animator>().SetBool("isSucking", false);
+        SuckZone.SetActive(false);
+        if (state > 5)
         {
             currState = (KirbyStates)state;
         }
+        else
+            currState = KirbyStates.NOTHING;
+        enemy.SetActive(false);
+        delay = Time.time;
+        
+        
      }
 
+    void Death()
+    {
+        //Remind Jesse about death
+        Application.LoadLevel("GameOver");
+    }
 }
