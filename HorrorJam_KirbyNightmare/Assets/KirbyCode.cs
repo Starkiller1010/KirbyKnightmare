@@ -147,7 +147,10 @@ public class KirbyCode : MonoBehaviour
         if(!Grounded)
             GetComponent<Rigidbody2D>().gravityScale = 0.2f;
 
-        if (!GetComponent<BoxCollider2D>().IsTouching(ground.GetComponent<EdgeCollider2D>()))
+        //if (!GetComponent<BoxCollider2D>().IsTouching(ground.GetComponent<EdgeCollider2D>()))
+        //    Grounded = false;
+        
+        if(!GetComponent<BoxCollider2D>().IsTouching(ground.GetComponent<BoxCollider2D>()))
             Grounded = false;
 
 
@@ -176,7 +179,7 @@ public class KirbyCode : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Death")
         {
@@ -188,8 +191,10 @@ public class KirbyCode : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Ground")
-        { jumpcount = 0;
-        GetComponent<Rigidbody2D>().gravityScale = 0;
+        {   
+            jumpcount = 0;
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+            Grounded = true;
         }
 
         if (other.gameObject.tag == "Door")
@@ -267,7 +272,7 @@ public class KirbyCode : MonoBehaviour
                 //Lets out air and falls
             }
 
-            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Door").GetComponent<BoxCollider2D>()))
+            if (GetComponent<BoxCollider2D>().IsTouchingLayers(Groundlayer))
             {
                 LeaveArea();
             }
@@ -380,8 +385,10 @@ public class KirbyCode : MonoBehaviour
             {
                 SuckZone.GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<Animator>().SetBool("isSucking", false);
-                if (particles.isPlaying)
-                    particles.Stop();
+                if (particles.isPlaying && inhaling)
+                { particles.Stop();
+                inhaling = false;
+                }
                 
                 
             }
@@ -398,11 +405,13 @@ public class KirbyCode : MonoBehaviour
             {
                 SuckZone.GetComponent<BoxCollider2D>().enabled = true;
                 GetComponent<Animator>().SetBool("isSucking", true);
-                if (!particles.IsAlive(false) && !particles.isPlaying)
+                if (!inhaling)
                 {
-                    Debug.Log("Particles not living. Creating Particles");
-                    particles.enableEmission = true;
+                    inhaling = true;
                     particles.Play();
+                    //Debug.Log("Particles not living. Creating Particles");
+                    //particles.enableEmission = true;
+                    //particles.Play();
                 }
                 //GetComponent<Animator>().Play("kirbySuck");
             }
