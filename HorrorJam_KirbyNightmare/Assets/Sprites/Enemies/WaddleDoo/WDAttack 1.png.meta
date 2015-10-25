@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: bc79790cce2377746bf5e565d14d38b2
-timeCreated: 1445751865
+guid: 7732712f553e873429473cf58f1c2640
+timeCreated: 1445752011
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -68,107 +68,87 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: WDAttack_18
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 24
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: WDAttack_19
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 2
-        width: 24
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_26
       rect:
         serializedVersion: 2
-        x: 54
-        y: 2
-        width: 24
-        height: 24
+        x: 63
+        y: 26
+        width: 14
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_27
       rect:
         serializedVersion: 2
-        x: 81
-        y: 2
-        width: 24
-        height: 24
+        x: 88
+        y: 27
+        width: 20
+        height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_28
       rect:
         serializedVersion: 2
-        x: 112
-        y: 2
-        width: 24
-        height: 24
+        x: 117
+        y: 27
+        width: 20
+        height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_29
       rect:
         serializedVersion: 2
-        x: 142
-        y: 2
-        width: 24
-        height: 24
+        x: 153
+        y: 26
+        width: 32
+        height: 33
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_30
       rect:
         serializedVersion: 2
-        x: 188
-        y: 1
-        width: 26
-        height: 24
+        x: 212
+        y: 15
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_33
       rect:
         serializedVersion: 2
-        x: 242
-        y: 1
-        width: 34
-        height: 24
+        x: 268
+        y: 7
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_36
       rect:
         serializedVersion: 2
-        x: 302
-        y: 1
-        width: 24
-        height: 24
+        x: 327
+        y: 2
+        width: 36
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: WDAttack_39
       rect:
         serializedVersion: 2
-        x: 368
-        y: 0
-        width: 24
-        height: 24
+        x: 392
+        y: 5
+        width: 13
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
