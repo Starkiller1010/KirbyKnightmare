@@ -2,44 +2,31 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public enum KirbyStates
-{
-	BEAM,
-	BYE,
-	FIRE,
-	GOAL,
-	MISS,
-	NORMAL,
-	NOTHING,
-	OUCH,
-	SPARK
-}
-
-public enum KirbyPowers
-{
-	BEAM,
-	FIRE,
-	NONE,
-	SPARK
-}
-
 public class KirbyStatePicture : MonoBehaviour {
 
 	public RawImage powerPicture;
 	public KirbyCode Player;
+	private KirbyStates test;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
+		ChangePowerPicture ();
+		test = Player.currState;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		if (test != Player.currState) {
+			ChangePowerPicture();
+			test = Player.currState;
+		}
 	}
 
-	void ChangePowerPicture(KirbyStates state) {
+	void ChangePowerPicture() {
 		Texture newTexture = null;
-		switch (state) 
+		switch (Player.currState) 
 		{
 		case KirbyStates.BEAM:
 			newTexture = Resources.Load ("beam") as Texture;

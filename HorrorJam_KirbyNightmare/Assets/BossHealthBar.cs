@@ -8,7 +8,6 @@ public class BossHealthBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bossHealth = GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame

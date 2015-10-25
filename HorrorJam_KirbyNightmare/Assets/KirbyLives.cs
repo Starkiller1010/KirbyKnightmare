@@ -7,7 +7,6 @@ public class KirbyLives : MonoBehaviour {
 	public Text lifeLine;
 	// Use this for initialization
 	void Start () {
-		lifeLine = GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
