@@ -29,6 +29,10 @@ public class KirbyCode : MonoBehaviour
 
     // Use this for initialization
 
+    public bool Controllable = true;
+
+
+    public KirbyPowers Powers;
     public int healthcount = 6;
     public int lives = 4;
     private bool reversed;
@@ -120,6 +124,10 @@ public class KirbyCode : MonoBehaviour
     }
 
 
+    IEnumerator TimeFreeze(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -136,7 +144,13 @@ public class KirbyCode : MonoBehaviour
         if (healthcount <= 0)
         {
             currState = KirbyStates.MISS;
+<<<<<<< HEAD
             Death();
+=======
+            GetComponent<Animator>().SetBool("Death", true);
+
+            StartCoroutine("Death");
+>>>>>>> refs/remotes/origin/Gerard
         }
 
         if (currState == KirbyStates.NOTHING && Time.time > delay + (2.0f * Time.deltaTime))
@@ -153,6 +167,10 @@ public class KirbyCode : MonoBehaviour
 
     }
 
+    void FadeBlack()
+    {
+        Camera.main.backgroundColor = Color.black;
+    }
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -226,6 +244,7 @@ public class KirbyCode : MonoBehaviour
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
         doubletap = false;
 
         //float move = Input.GetAxis("Horizontal");
@@ -249,31 +268,59 @@ public class KirbyCode : MonoBehaviour
                 
             }
             else if (jumpcount <= 5 && !Grounded && Time.time > lastjump + delay)
+=======
+        //if (Controllable)
+        {//WASD controls
+            if (Input.GetKeyDown(KeyCode.W))
+>>>>>>> refs/remotes/origin/Gerard
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 255.0f));
-                //transform.Translate(new Vector3(0.0f, 0.4f, 0.0f));
-                jumpcount++;
-                GetComponent<Animator>().SetInteger("jumpCount", jumpcount);
-                if (jumpcount == 5)
+                //message = KirbyActions.K_JUMP;
+                //Jump
+                if (jumpcount == 0 && Grounded)
                 {
-                    //Animation sprite that puffs;
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 275.0f));
+                    //transform.Translate(new Vector3(0.0f, 0.5f, 0.0f));
+                    Grounded = false;
+                    //GetComponent<Animator>().SetBool("jumping", true);
+                    jumpcount++;
                     //Avatar = Airpuff1;
-                    //Invoke("JumpDelay", 0.0f);
-                }
-                GetComponent<Animator>().SetBool("jumping", true);
-            }
-            else
-            {
-                //Lets out air and falls
-            }
+                    lastjump = Time.time;
 
+                }
+                else if (jumpcount <= 5 && !Grounded && Time.time > lastjump + delay)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 255.0f));
+                    //transform.Translate(new Vector3(0.0f, 0.4f, 0.0f));
+                    jumpcount++;
+                    GetComponent<Animator>().SetInteger("jumpCount", jumpcount);
+                    if (jumpcount == 5)
+                    {
+                        //Animation sprite that puffs;
+                        //Avatar = Airpuff1;
+                        //Invoke("JumpDelay", 0.0f);
+                    }
+                    GetComponent<Animator>().SetBool("jumping", true);
+                }
+                else
+                {
+                    //Lets out air and falls
+                }
+
+<<<<<<< HEAD
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Door").GetComponent<BoxCollider2D>()))
             {
                 LeaveArea();
             }
+=======
+                if (GetComponent<BoxCollider2D>().IsTouchingLayers(Groundlayer))
+                {
+                    LeaveArea();
+                }
+>>>>>>> refs/remotes/origin/Gerard
 
-        }
+            }
 
+<<<<<<< HEAD
         if (Input.GetKey(KeyCode.A) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
         {
 
@@ -303,23 +350,30 @@ public class KirbyCode : MonoBehaviour
             //        transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
             //}
             if (Input.GetKey(KeyCode.LeftShift))
+=======
+            if (Input.GetKey(KeyCode.A) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
+>>>>>>> refs/remotes/origin/Gerard
             {
-                transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
-                if (!reversed)
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = true;
+                    transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
+                    if (!reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = true;
+                    }
                 }
-            }
-            else
-            {
-                //Avatar = walking
-                transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
-                if (!reversed)
+                else
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = true;
+                    //Avatar = walking
+                    transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
+                    if (!reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = true;
+                    }
                 }
+<<<<<<< HEAD
             }
 
             GetComponent<Animator>().SetBool("move", true);
@@ -343,34 +397,65 @@ public class KirbyCode : MonoBehaviour
             //GetComponent<Animator>().SetBool("move", true);
             //if(Grounded)
             //    GetComponent<Animator>().Play("WalkingCycle");
+=======
+                GetComponent<Animator>().SetBool("move", true);
+                if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
+                    GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+>>>>>>> refs/remotes/origin/Gerard
 
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            //GetComponent<SpriteRenderer>().sprite = crouching;
-            IsCrouched = true;
+                if (Grounded)
+                    GetComponent<Animator>().Play("WalkingCycle");
+                //GetComponent<Animator>().SetBool("move", true);
+                //if(Grounded)
+                //    GetComponent<Animator>().Play("WalkingCycle");
 
-        }
-        else if (Input.GetKey(KeyCode.D) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
+            }
+            else if (Input.GetKey(KeyCode.S))
             {
-                transform.Translate(new Vector3(2.0f * Time.deltaTime, 0.0f, 0.0f));
-                if (reversed)
+                //GetComponent<SpriteRenderer>().sprite = crouching;
+                IsCrouched = true;
+
+            }
+            else if (Input.GetKey(KeyCode.D) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
+            {
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = false;
+                    transform.Translate(new Vector3(2.0f * Time.deltaTime, 0.0f, 0.0f));
+                    if (reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = false;
+                    }
                 }
+                else
+                {
+                    //Avatar = walking
+                    transform.Translate(new Vector3(1.0f * Time.deltaTime, 0.0f, 0.0f));
+                    if (reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = false;
+                    }
+                }
+                GetComponent<Animator>().SetBool("move", true);
+                if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
+                    GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+                if (Grounded)
+                    GetComponent<Animator>().Play("WalkingCycle");
+
+
             }
             else
             {
-                //Avatar = walking
-                transform.Translate(new Vector3(1.0f * Time.deltaTime, 0.0f, 0.0f));
-                if (reversed)
+                GetComponent<Animator>().SetBool("move", false);
+                //GetComponent<Animator>().SetBool("jumping", false);
+                //message = KirbyActions.K_IDLE;
+                if (Grounded == true && !GetComponent<Animator>().GetBool("isSucking"))
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = false;
+                    GetComponent<Animator>().Play("Idle");
+                    GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                 }
+<<<<<<< HEAD
             }
             GetComponent<Animator>().SetBool("move", true);
 
@@ -401,12 +486,27 @@ public class KirbyCode : MonoBehaviour
                    // particles.Stop();
                 
                 
-            }
-            transform.position = transform.position;
-          
-            
-        }
+=======
+                IsCrouched = false;
+                if (SuckZone.GetComponent<BoxCollider2D>().enabled)
+                {
+                    SuckZone.GetComponent<BoxCollider2D>().enabled = false;
+                    GetComponent<Animator>().SetBool("isSucking", false);
+                    if (particles.isPlaying && inhaling)
+                    {
+                        particles.Stop();
+                        inhaling = false;
+                    }
 
+
+                }
+                transform.position = transform.position;
+
+
+>>>>>>> refs/remotes/origin/Gerard
+            }
+
+<<<<<<< HEAD
         //Action buttons
         if (Input.GetKey(KeyCode.Space))
         {
@@ -420,54 +520,74 @@ public class KirbyCode : MonoBehaviour
                     Debug.Log("Particles not living. Creating Particles");
                     particles.enableEmission = true;
                     particles.Play();
-                }
-                //GetComponent<Animator>().Play("kirbySuck");
-            }
-
-            if (SuckZone.GetComponent<ParticleSystem>().isPlaying)
+=======
+            //Action buttons
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                //if (!particles.IsAlive(false))
-                if (particles.particleCount < 10)
-                    Debug.Log("Particles Low");
-                else
-                    Debug.Log("Particles above average");
-            }
-            //If something in mouth
-            if (MouthFull)
-            {
-
-            }
-            //If player has an ability
-            if (currState > KirbyStates.NORMAL)
-            {
-                //KirbyPowers.SendMessage("KirbyAbility", currState);
-            }
-
-            if (IsCrouched && Input.GetKey(KeyCode.D) && !isSliding)
-            {
-                isSliding = true;
-                localVel.AddForce(new Vector2(200.0f, 0.0f));
-                //transform.Translate(new Vector3(2.0f, 0.0f, 0.0f));
-                //GetComponent<Animator>().SetBool("StringSlide", true);
-                if (reversed)
+                //Sucking Code
+                if (!SuckZone.GetComponent<BoxCollider2D>().enabled)
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = false;
+                    SuckZone.GetComponent<BoxCollider2D>().enabled = true;
+                    GetComponent<Animator>().SetBool("isSucking", true);
+                    if (!inhaling)
+                    {
+                        inhaling = true;
+                        particles.Play();
+                        //Debug.Log("Particles not living. Creating Particles");
+                        //particles.enableEmission = true;
+                        //particles.Play();
+                    }
+                    //GetComponent<Animator>().Play("kirbySuck");
+>>>>>>> refs/remotes/origin/Gerard
                 }
-            }
-            else if (IsCrouched && Input.GetKey(KeyCode.A) && !isSliding)
-            {
-                isSliding = true;
-                localVel.AddForce(new Vector2(-200.0f, 0.0f));
-                //transform.Translate(new Vector3(-2.0f, 0.0f, 0.0f));
-                //GetComponent<Animator>().SetBool("StringSlide", true);
-                if (!reversed)
+
+                if (SuckZone.GetComponent<ParticleSystem>().isPlaying)
                 {
-                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-                    reversed = true;
+                    //if (!particles.IsAlive(false))
+                    if (particles.particleCount < 10)
+                        Debug.Log("Particles Low");
+                    else
+                        Debug.Log("Particles above average");
                 }
+                //If something in mouth
+                if (MouthFull)
+                {
+
+                }
+                //If player has an ability
+                if (currState > KirbyStates.NORMAL)
+                {
+                    //KirbyPowers.SendMessage("KirbyAbility", currState);
+                }
+
+                if (IsCrouched && Input.GetKey(KeyCode.D) && !isSliding)
+                {
+                    isSliding = true;
+                    localVel.AddForce(new Vector2(200.0f, 0.0f));
+                    //transform.Translate(new Vector3(2.0f, 0.0f, 0.0f));
+                    //GetComponent<Animator>().SetBool("StringSlide", true);
+                    if (reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = false;
+                    }
+                }
+                else if (IsCrouched && Input.GetKey(KeyCode.A) && !isSliding)
+                {
+                    isSliding = true;
+                    localVel.AddForce(new Vector2(-200.0f, 0.0f));
+                    //transform.Translate(new Vector3(-2.0f, 0.0f, 0.0f));
+                    //GetComponent<Animator>().SetBool("StringSlide", true);
+                    if (!reversed)
+                    {
+                        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                        reversed = true;
+                    }
+                }
+
             }
 
+<<<<<<< HEAD
 
             ////Sucking Code
            // if(!SuckZone.enabled)
@@ -484,10 +604,18 @@ public class KirbyCode : MonoBehaviour
         {
             //Release Ability
             currState = KirbyStates.NORMAL;
+=======
+            //Extra Button
+            if (Input.GetKey(KeyCode.Space))
+            {
+                //Release Ability
+                currState = KirbyStates.NORMAL;
 
+            }
+>>>>>>> refs/remotes/origin/Gerard
+
+            //SendMessage("DoStuff", message);
         }
-
-        //SendMessage("DoStuff", message);
     }
 
 
@@ -505,16 +633,19 @@ public class KirbyCode : MonoBehaviour
             currState = KirbyStates.NOTHING;
         enemy.SetActive(false);
         delay = Time.time;
-
-
     }
 
-    void Death()
+    IEnumerator Death()
     {
         //Remind Jesse about death
         lives--;
+<<<<<<< HEAD
         transform.Translate(Vector3.up * 2.0f);
         transform.Translate(Vector3.down * 5.0f);
+=======
+        float fadetime = ground.GetComponent<Fading>().BeginFade(1);
+        yield return new WaitForSeconds(0.8f);
+>>>>>>> refs/remotes/origin/Gerard
         if(lives == 0)
             Application.LoadLevel("GameOver");
         else
