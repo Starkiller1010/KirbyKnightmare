@@ -25,7 +25,6 @@ public class KirbyPowers : MonoBehaviour {
 			CircleCollider2D sparks = Player.gameObject.AddComponent<CircleCollider2D>();
 			sparks.radius = 5;
 			break;
-
 		}
 	}
 }
