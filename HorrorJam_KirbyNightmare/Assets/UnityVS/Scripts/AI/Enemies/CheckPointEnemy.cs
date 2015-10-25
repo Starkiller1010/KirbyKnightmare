@@ -8,7 +8,6 @@ public class CheckPointEnemy : MonoBehaviour {
         if (coll.transform.tag == "Underground")
         {
             transform.parent.SendMessage("TurnRound");
-            print("xxx");
         }
     }
 }

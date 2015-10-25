@@ -73,7 +73,7 @@ public class Enemy : MonoBehaviour {
             
             isGetToEat = true;
             canMove = false;
-            gameObject.SendMessage("StopShowWeapon");
+            gameObject.SendMessage("StopShowWeapon",SendMessageOptions.DontRequireReceiver);
         }
     }
     /**

@@ -28,6 +28,10 @@ public class WaddleDoo : Enemy {
                 {
                     player.SendMessage("EnemySuckedIn", weapontype, SendMessageOptions.DontRequireReceiver);
                     GetComponent<Animator>().enabled = false;
+                    weapon[0].transform.gameObject.SetActive(false);
+                    weapon[1].transform.gameObject.SetActive(false);
+                    weapon[2].transform.gameObject.SetActive(false);
+                    weapon[3].transform.gameObject.SetActive(false);
                 }
             }
             else
@@ -96,7 +100,6 @@ public class WaddleDoo : Enemy {
         {
             yield return new WaitForSeconds(randomTimeToJump);
             i = Random.Range(0, 2);
-            print(i);
             if(!isGetToEat)
             {
 
