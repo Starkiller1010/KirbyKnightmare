@@ -321,29 +321,24 @@ public class KirbyCode : MonoBehaviour
                     reversed = true;
                 }
             }
-//<<<<<<< HEAD
 
             GetComponent<Animator>().SetBool("move", true);
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
+
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
             GetComponent<Animator>().SetBool("move", true);
-//>>>>>>> parent of 93fe8eb... Kirby Door enter works
-//=======
+
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
             GetComponent<Animator>().SetBool("move", true);
-//>>>>>>> parent of 93fe8eb... Kirby Door enter works
+
             if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
-//=======
+
             GetComponent<Animator>().SetBool("move", true);
             if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
                 GetComponent<Rigidbody2D>().gravityScale = 0.2f;
                 
             if (Grounded)
-//>>>>>>> refs/remotes/origin/Gerard
                 GetComponent<Animator>().Play("WalkingCycle");
             //GetComponent<Animator>().SetBool("move", true);
             //if(Grounded)
@@ -378,22 +373,14 @@ public class KirbyCode : MonoBehaviour
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-            
-//=======
-//=======
-/*>>>>>>>*/// parent of 93fe8eb... Kirby Door enter works
+
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
-/*>>>>>>>*/ //parent of 93fe8eb... Kirby Door enter works
-//=======
+
             if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
                 GetComponent<Rigidbody2D>().gravityScale = 0.2f;
             if (Grounded)
                 GetComponent<Animator>().Play("WalkingCycle");
-//>>>>>>> refs/remotes/origin/Gerard
 
 
         }
@@ -481,9 +468,7 @@ public class KirbyCode : MonoBehaviour
                 }
             }
 
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
+
             ////Sucking Code
            // if(!SuckZone.enabled)
           //  SuckZone.enabled = true;
@@ -491,9 +476,7 @@ public class KirbyCode : MonoBehaviour
             //if (MouthFull)
                 
             //If player has an ability
-//>>>>>>> winston
-//=======
-//>>>>>>> refs/remotes/origin/Gerard
+
         }
 
         //Extra Button
@@ -526,11 +509,6 @@ public class KirbyCode : MonoBehaviour
 
     }
 
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//=======
-//=======
-//>>>>>>> refs/remotes/origin/Gerard
     void Death()
     {
         //Remind Jesse about death
@@ -542,15 +520,7 @@ public class KirbyCode : MonoBehaviour
         else
             Application.LoadLevel(Application.loadedLevelName);
     }
-//<<<<<<< HEAD
-//<<<<<<< HEAD
-//>>>>>>> parent of 93fe8eb... Kirby Door enter works
-//=======
-//>>>>>>> parent of 93fe8eb... Kirby Door enter works
-
-//=======
-
-
+	
 
     void LeaveArea()
     {
