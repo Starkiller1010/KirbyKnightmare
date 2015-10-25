@@ -8,7 +8,7 @@ public class KirbyCode : MonoBehaviour {
     public int healthcount = 6;
     public int lives = 4;
     private bool reversed;
-    private Vector2 localVel;
+    private Rigidbody2D localVel;
     private int jumpcount;
     private Sprite Avatar;
     private bool IsCrouched = false;
@@ -19,9 +19,16 @@ public class KirbyCode : MonoBehaviour {
     public float dashed = 2.0f;
     private float _lastbuttonpress;
     private float _lastdash;
-    Animator anim;
+    public Sprite Airpuff1;
+    public Sprite Airpuff2;
+    //Animator anim;
     KirbyAction actions;
     KirbyActions message;
+    private bool isSliding;
+    private bool MouthFull;
+    public BoxCollider2D SuckZone;
+    public bool inhaling;
+
 
     public bool Grounded { get { return iSGrounded; } set { iSGrounded = value; } }
 
@@ -50,12 +57,12 @@ public class KirbyCode : MonoBehaviour {
     //}
 	void Start () 
     {
-        localVel = GetComponent<Rigidbody2D>().velocity;
+        localVel = GetComponent<Rigidbody2D>();
         Avatar = GetComponent<SpriteRenderer>().sprite;
         reversed = false;
         isDashing = false;
-        anim = GetComponent<Animator>();
-        message = KirbyActions.K_IDLE;
+        //anim = GetComponent<Animator>();
+       // message = KirbyActions.K_IDLE;
 
 	}
 
@@ -63,8 +70,16 @@ public class KirbyCode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-       
-        
+           if(GetComponent<Animator>().GetBool("jumping") && GetComponent<Animator>().GetInteger("jumpCount") > 0)
+           {
+               GetComponent<Animator>().Play("kirbyjump");
+           }
+
+        if(isSliding && localVel.velocity.x == 0.0f)
+        {
+            isSliding = false;
+        }
+                    
 	}
 
     void OnCollisionEnter2D(Collision2D other)
@@ -79,13 +94,27 @@ public class KirbyCode : MonoBehaviour {
         if (other.gameObject.tag == "Ground")
         {
             Debug.Log("Resetting jump");
+            CancelInvoke();
             Grounded = true;
-            jumpcount = 0;
+            if(GetComponent<Animator>().GetBool("jumping"))
+            {
+                GetComponent<Animator>().SetBool("jumping", false);
+                GetComponent<Animator>().Play("Idle");
+
+            }
+        }
+        if (inhaling)
+        {
+            EnemySuckedIn(other.gameObject);
+            MouthFull = true;
         }
     }
 
     void OnCollisionStay2D(Collision2D other)
     {
+        if(other.gameObject.tag == "Ground")
+         jumpcount = 0;
+
         if (other.gameObject.tag == "Door")
         {
             if(Input.GetKeyDown(KeyCode.W))
@@ -100,6 +129,14 @@ public class KirbyCode : MonoBehaviour {
         //if (message != null)
         //SendMessage("DoStuff", message);
     }
+
+    void JumpDelay()
+    {
+        //Avatar = Airpuff2;
+        GetComponent<Animator>().SetBool("jumping", true);
+
+
+    }
     
 
     void FixedUpdate()
@@ -112,29 +149,40 @@ public class KirbyCode : MonoBehaviour {
         //WASD controls
         if (Input.GetKeyDown(KeyCode.W))
         {
-            message = KirbyActions.K_JUMP;
+            //message = KirbyActions.K_JUMP;
             //Jump
             if (jumpcount == 0 && Grounded)
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 225.0f));
                 //transform.Translate(new Vector3(0.0f, 0.5f, 0.0f));
                 Grounded = false;
+                //GetComponent<Animator>().SetBool("jumping", true);
                 jumpcount++;
+                //Avatar = Airpuff1;
             }
             else if (jumpcount <= 5 && !Grounded)
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0.0f, 125.0f));
                 //transform.Translate(new Vector3(0.0f, 0.4f, 0.0f));
                 jumpcount++;
+                GetComponent<Animator>().SetInteger("jumpCount", jumpcount);
                 if (jumpcount == 5)
                 {
                     //Animation sprite that puffs;
+                    //Avatar = Airpuff1;
+                    //Invoke("JumpDelay", 0.0f);
                 }
+                GetComponent<Animator>().SetBool("jumping", true);
             }
+            else
+            {
+                //Lets out air and falls
+            }
+            Debug.Log("jumCount = ", gameObject);
 
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)&& !IsCrouched)
         {
 
             transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
@@ -144,15 +192,19 @@ public class KirbyCode : MonoBehaviour {
                 reversed = true;
             }
             GetComponent<Animator>().SetBool("move", true);
+            if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
+
         }
         else if (Input.GetKey(KeyCode.S))
         {
             //GetComponent<SpriteRenderer>().sprite = crouching;
+            IsCrouched = true;
 
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) && !IsCrouched)
         {
-            if(Input.GetKeyDown(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(new Vector3(2.0f * Time.deltaTime, 0.0f, 0.0f));
                 if (reversed)
@@ -172,34 +224,55 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
+            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
 
 
         }
         else
         {
             GetComponent<Animator>().SetBool("move", false);
-            message = KirbyActions.K_IDLE;
-
+            //GetComponent<Animator>().SetBool("jumping", false);
+            //message = KirbyActions.K_IDLE;
+            if(Grounded == true)
+                GetComponent<Animator>().Play("Idle");
+            IsCrouched = false;
         }
 
         //Action buttons
         if (Input.GetKey(KeyCode.Space))
         {
-            if(IsCrouched && Input.GetKey(KeyCode.D))
+            if(IsCrouched && Input.GetKey(KeyCode.D) && !isSliding)
             {
-                transform.Translate(new Vector3(4.0f, 0.0f, 0.0f));
+                isSliding = true;
+                localVel.AddForce(new Vector2(200.0f, 0.0f));
+                //transform.Translate(new Vector3(2.0f, 0.0f, 0.0f));
                 //GetComponent<Animator>().SetBool("StringSlide", true);
+                if (reversed)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                    reversed = false;
+                }
             }
-            else if (IsCrouched && Input.GetKey(KeyCode.A))
+            else if (IsCrouched && Input.GetKey(KeyCode.A) && !isSliding)
             {
-                transform.Translate(new Vector3(-4.0f, 0.0f, 0.0f));
+                isSliding = true;
+                localVel.AddForce(new Vector2(-200.0f, 0.0f));
+                //transform.Translate(new Vector3(-2.0f, 0.0f, 0.0f));
                 //GetComponent<Animator>().SetBool("StringSlide", true);
+                if (!reversed)
+                {
+                    transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+                    reversed = true;
+                }
             }
 
             //Sucking Code
-
+            if(!SuckZone.enabled)
+            SuckZone.enabled = true;
             //If something in mouth
-
+            if (MouthFull)
+                
             //If player has an ability
         }
 
@@ -234,5 +307,12 @@ public class KirbyCode : MonoBehaviour {
         transform.Translate(4.0f * Time.deltaTime, 0.0f, 0.0f);
     }
 
+    void EnemySuckedIn(GameObject enemy)
+     {
+        if(enemy.transform.FindChild("WEAPON"))
+        {
+
+        }
+     }
 
 }
