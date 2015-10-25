@@ -351,17 +351,6 @@ public class KirbyCode : MonoBehaviour {
                     reversed = true;
                 }
             }
-
-<<<<<<< HEAD
-=======
-            //Sucking Code
-            if(!SuckZone.enabled)
-            SuckZone.enabled = true;
-            //If something in mouth
-            //if (MouthFull)
-                
-            //If player has an ability
->>>>>>> winston
         }
 
         //Extra Button
