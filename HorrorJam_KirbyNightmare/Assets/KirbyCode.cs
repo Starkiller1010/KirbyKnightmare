@@ -154,12 +154,12 @@ public class KirbyCode : MonoBehaviour {
 
         if (other.gameObject.tag == "Door")
         {
-            if(Input.GetKeyDown(KeyCode.W))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                // message = KirbyActions.K_ENTER_DOOR;
                 //Enter Door Animation
-
-                //Application.LoadLevel("NextLevel");
+                
+                GetComponent<Animator>().SetBool("Enter", true);
             }
         }
 
@@ -225,6 +225,10 @@ public class KirbyCode : MonoBehaviour {
                 //Lets out air and falls
             }
             
+            if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Door").GetComponent<BoxCollider2D>()))
+            {
+                LeaveArea();
+            }
 
         }
 
@@ -276,11 +280,11 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
-            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+            if (Grounded)
                 GetComponent<Animator>().Play("WalkingCycle");
-            GetComponent<Animator>().SetBool("move", true);
-            if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
-                GetComponent<Animator>().Play("WalkingCycle");
+            //GetComponent<Animator>().SetBool("move", true);
+            //if(Grounded)
+            //    GetComponent<Animator>().Play("WalkingCycle");
 
         }
         else if (Input.GetKey(KeyCode.S))
@@ -311,7 +315,7 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
-            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+            if (Grounded)
                 GetComponent<Animator>().Play("WalkingCycle");
 
 
@@ -430,5 +434,17 @@ public class KirbyCode : MonoBehaviour {
     {
         //Remind Jesse about death
         Application.LoadLevel("GameOver");
+    }
+
+    void LeaveArea()
+    {
+        //other.gameObject.SendMessage("LoadNextLevel");
+        Debug.Log("EnteringLoad");
+        if (Application.loadedLevelName == "Level1QuickTest")
+            Application.LoadLevel("Level2QuickTest");
+        else if (Application.loadedLevelName == "Level2QuickTest")
+            Application.LoadLevel("Level3QuickTest");
+        else if (Application.loadedLevelName == "Level3QuickTest")
+            Application.LoadLevel("EvilTreeBoss");
     }
 }
