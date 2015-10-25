@@ -251,6 +251,18 @@ public class KirbyCode : MonoBehaviour {
             }
 
             GetComponent<Animator>().SetBool("move", true);
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
+            GetComponent<Animator>().SetBool("move", true);
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
+=======
+            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
+            GetComponent<Animator>().SetBool("move", true);
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
             if(GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
                 GetComponent<Animator>().Play("WalkingCycle");
 
@@ -285,7 +297,15 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
+<<<<<<< HEAD
+<<<<<<< HEAD
             
+=======
+=======
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
+            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
+                GetComponent<Animator>().Play("WalkingCycle");
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
 
 
         }
@@ -387,4 +407,15 @@ public class KirbyCode : MonoBehaviour {
         }
      }
 
+<<<<<<< HEAD
+=======
+    void Death()
+    {
+        //Remind Jesse about death
+        Application.LoadLevel("GameOver");
+    }
+<<<<<<< HEAD
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
+=======
+>>>>>>> parent of 93fe8eb... Kirby Door enter works
 }
