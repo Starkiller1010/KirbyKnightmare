@@ -271,7 +271,7 @@ public class KirbyCode : MonoBehaviour {
             if(!SuckZone.enabled)
             SuckZone.enabled = true;
             //If something in mouth
-            if (MouthFull)
+            //if (MouthFull)
                 
             //If player has an ability
         }
