@@ -1,2 +1,10 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 m_EditorVersion: 5.1.3f1
+=======
+m_EditorVersion: 5.2.2f1
+>>>>>>> winston
+=======
+m_EditorVersion: 5.1.3f1
+>>>>>>> Gerard
 m_StandardAssetsVersion: 0

@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: a55581072f7a565478159934bd1b677f
-timeCreated: 1445710467
+guid: 4d3849939284be54e8fdab87c9a22669
+timeCreated: 1445738037
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FlyingCycle_0
-    21300002: FlyingCycle_1
-    21300004: FlyingCycle_2
-    21300006: FlyingCycle_3
-    21300008: FlyingCycle_4
-    21300010: FlyingCycle_5
+    21300000: InhaleStart_0
+    21300002: InhaleStart_1
+    21300004: InhaleStart_2
+    21300006: InhaleStart_3
+    21300008: InhaleStart_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -32,10 +31,10 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -56,63 +55,53 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: FlyingCycle_0
+    - name: InhaleStart_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 2
-        width: 30
-        height: 32
+        x: 0
+        y: 0
+        width: 27
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FlyingCycle_1
+    - name: InhaleStart_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 2
-        width: 30
-        height: 32
+        x: 32
+        y: 0
+        width: 27
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FlyingCycle_2
+    - name: InhaleStart_2
       rect:
         serializedVersion: 2
-        x: 79
-        y: 2
-        width: 30
-        height: 31
+        x: 64
+        y: 0
+        width: 27
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FlyingCycle_3
+    - name: InhaleStart_3
       rect:
         serializedVersion: 2
-        x: 114
-        y: 2
-        width: 30
-        height: 31
+        x: 96
+        y: 0
+        width: 28
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FlyingCycle_4
+    - name: InhaleStart_4
       rect:
         serializedVersion: 2
-        x: 148
-        y: 2
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: FlyingCycle_5
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 2
-        width: 33
-        height: 31
+        x: 129
+        y: 0
+        width: 29
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
