@@ -144,13 +144,13 @@ public class KirbyCode : MonoBehaviour
         if (healthcount <= 0)
         {
             currState = KirbyStates.MISS;
-<<<<<<< HEAD
+//<<<<<<< HEAD
             Death();
-=======
+//=======
             GetComponent<Animator>().SetBool("Death", true);
 
             StartCoroutine("Death");
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
         }
 
         if (currState == KirbyStates.NOTHING && Time.time > delay + (2.0f * Time.deltaTime))
@@ -244,7 +244,7 @@ public class KirbyCode : MonoBehaviour
 
     void FixedUpdate()
     {
-<<<<<<< HEAD
+//<<<<<<< HEAD
         doubletap = false;
 
         //float move = Input.GetAxis("Horizontal");
@@ -268,11 +268,11 @@ public class KirbyCode : MonoBehaviour
                 
             }
             else if (jumpcount <= 5 && !Grounded && Time.time > lastjump + delay)
-=======
+//=======
         //if (Controllable)
         {//WASD controls
             if (Input.GetKeyDown(KeyCode.W))
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
             {
                 //message = KirbyActions.K_JUMP;
                 //Jump
@@ -306,21 +306,21 @@ public class KirbyCode : MonoBehaviour
                     //Lets out air and falls
                 }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Door").GetComponent<BoxCollider2D>()))
             {
                 LeaveArea();
             }
-=======
+//=======
                 if (GetComponent<BoxCollider2D>().IsTouchingLayers(Groundlayer))
                 {
                     LeaveArea();
                 }
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
 
             }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         if (Input.GetKey(KeyCode.A) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
         {
 
@@ -350,9 +350,9 @@ public class KirbyCode : MonoBehaviour
             //        transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
             //}
             if (Input.GetKey(KeyCode.LeftShift))
-=======
+//=======
             if (Input.GetKey(KeyCode.A) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -373,7 +373,7 @@ public class KirbyCode : MonoBehaviour
                         reversed = true;
                     }
                 }
-<<<<<<< HEAD
+//<<<<<<< HEAD
             }
 
             GetComponent<Animator>().SetBool("move", true);
@@ -397,11 +397,11 @@ public class KirbyCode : MonoBehaviour
             //GetComponent<Animator>().SetBool("move", true);
             //if(Grounded)
             //    GetComponent<Animator>().Play("WalkingCycle");
-=======
+//=======
                 GetComponent<Animator>().SetBool("move", true);
                 if (GetComponent<Rigidbody2D>().gravityScale != 0.2f)
                     GetComponent<Rigidbody2D>().gravityScale = 0.2f;
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
 
                 if (Grounded)
                     GetComponent<Animator>().Play("WalkingCycle");
@@ -455,7 +455,7 @@ public class KirbyCode : MonoBehaviour
                     GetComponent<Animator>().Play("Idle");
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                 }
-<<<<<<< HEAD
+//<<<<<<< HEAD
             }
             GetComponent<Animator>().SetBool("move", true);
 
@@ -486,7 +486,7 @@ public class KirbyCode : MonoBehaviour
                    // particles.Stop();
                 
                 
-=======
+//=======
                 IsCrouched = false;
                 if (SuckZone.GetComponent<BoxCollider2D>().enabled)
                 {
@@ -503,10 +503,10 @@ public class KirbyCode : MonoBehaviour
                 transform.position = transform.position;
 
 
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
             }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //Action buttons
         if (Input.GetKey(KeyCode.Space))
         {
@@ -520,7 +520,7 @@ public class KirbyCode : MonoBehaviour
                     Debug.Log("Particles not living. Creating Particles");
                     particles.enableEmission = true;
                     particles.Play();
-=======
+//=======
             //Action buttons
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -538,7 +538,7 @@ public class KirbyCode : MonoBehaviour
                         //particles.Play();
                     }
                     //GetComponent<Animator>().Play("kirbySuck");
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
                 }
 
                 if (SuckZone.GetComponent<ParticleSystem>().isPlaying)
@@ -587,7 +587,7 @@ public class KirbyCode : MonoBehaviour
 
             }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
             ////Sucking Code
            // if(!SuckZone.enabled)
@@ -604,7 +604,7 @@ public class KirbyCode : MonoBehaviour
         {
             //Release Ability
             currState = KirbyStates.NORMAL;
-=======
+//=======
             //Extra Button
             if (Input.GetKey(KeyCode.Space))
             {
@@ -612,7 +612,7 @@ public class KirbyCode : MonoBehaviour
                 currState = KirbyStates.NORMAL;
 
             }
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
 
             //SendMessage("DoStuff", message);
         }
@@ -639,13 +639,13 @@ public class KirbyCode : MonoBehaviour
     {
         //Remind Jesse about death
         lives--;
-<<<<<<< HEAD
+//<<<<<<< HEAD
         transform.Translate(Vector3.up * 2.0f);
         transform.Translate(Vector3.down * 5.0f);
-=======
+//=======
         float fadetime = ground.GetComponent<Fading>().BeginFade(1);
         yield return new WaitForSeconds(0.8f);
->>>>>>> refs/remotes/origin/Gerard
+//>>>>>>> refs/remotes/origin/Gerard
         if(lives == 0)
             Application.LoadLevel("GameOver");
         else
