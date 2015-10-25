@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+<<<<<<< HEAD
+guid: 899bf11e70899b944a46619a9df9689a
+timeCreated: 1445716604
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+=======
+guid: a55581072f7a565478159934bd1b677f
+timeCreated: 1445710467
+=======
+guid: 129aabf51b88c2145bbe4d49075be0d8
+timeCreated: 1445737911
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FlyingCycle_0
+    21300002: FlyingCycle_1
+    21300004: FlyingCycle_2
+    21300006: FlyingCycle_3
+    21300008: FlyingCycle_4
+    21300010: FlyingCycle_5
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+>>>>>>> 86d2a722e70ab28c1a7393b5b95b5427b27bd952
+=======
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+    filterMode: -1
+<<<<<<< HEAD
+    aniso: -1
+=======
+    aniso: 16
+>>>>>>> 86d2a722e70ab28c1a7393b5b95b5427b27bd952
+=======
+    filterMode: 0
+    aniso: 16
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+<<<<<<< HEAD
+  spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> 86d2a722e70ab28c1a7393b5b95b5427b27bd952
+=======
+  spriteMode: 2
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+<<<<<<< HEAD
+    sprites: []
+=======
+=======
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+    sprites:
+    - name: FlyingCycle_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlyingCycle_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 2
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlyingCycle_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 2
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlyingCycle_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 2
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlyingCycle_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FlyingCycle_5
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 2
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD:HorrorJam_KirbyNightmare/Assets/Sprites/FlyingCycle.png.meta
+>>>>>>> 86d2a722e70ab28c1a7393b5b95b5427b27bd952
+=======
+>>>>>>> f6a8f1abc26372a16a09c197acc644f36fdc1920:HorrorJam_KirbyNightmare/Assets/Sprites/KirbyCycles/FlyingCycle.png.meta
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

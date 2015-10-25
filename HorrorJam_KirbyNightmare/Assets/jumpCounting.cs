@@ -25,7 +25,7 @@ public class jumpCounting : StateMachineBehaviour {
 
     public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetInteger("jumpCount", 0);
+       // animator.SetInteger("jumpCount", 0);
     }
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
 	//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

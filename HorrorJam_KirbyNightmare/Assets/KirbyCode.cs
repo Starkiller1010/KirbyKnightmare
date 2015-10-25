@@ -4,23 +4,23 @@ using System.Collections;
 
 public enum KirbyStates
 {
-    //Exit Game
+    //Exit Game : 0
     BYE,
-    //Finish Stage
+    //Finish Stage : 1
     GOAL,
-    //Death
+    //Death : 2
     MISS,
-    //Without Powers
-    NORMAL,
-    //Damaged
+    //Damaged : 3
     OUCH,
-    //Swallowed with no power gain
+    //Swallowed with no power gain : 4
     NOTHING,
-    //Swallowed with Fire gain
+    //Without Powers : 5
+    NORMAL,
+    //Swallowed with Fire gain : 6
     FIRE,
-    //Swallowed with Beam gain
+    //Swallowed with Beam gain : 7
     BEAM,
-    //Swallowed with Spark gain
+    //Swallowed with Spark gain : 8
     SPARK
 }
 
@@ -47,7 +47,7 @@ public class KirbyCode : MonoBehaviour {
     KirbyActions message;
     private bool isSliding;
     private bool MouthFull;
-    public BoxCollider2D SuckZone;
+    public GameObject SuckZone;
     public bool inhaling;
 
     private float _lastbuttonpress;
@@ -137,11 +137,6 @@ public class KirbyCode : MonoBehaviour {
 
             }
         }
-        if (inhaling)
-        {
-            EnemySuckedIn(other.gameObject);
-            MouthFull = true;
-        }
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -183,8 +178,8 @@ public class KirbyCode : MonoBehaviour {
 
     void FixedUpdate()
     {
-        doubletap = false;
-		
+		doubletap = false;
+
 		//float move = Input.GetAxis("Horizontal");
 
 		//anim.SetFloat("move", Mathf.Abs(move));
@@ -214,17 +209,34 @@ public class KirbyCode : MonoBehaviour {
 			} else {
 				//Lets out air and falls
 			}
-			Debug.Log ("jumCount = ", gameObject);
+            
 
 		}
 
-		if (Input.GetKey (KeyCode.A) && !IsCrouched) {
+		if (Input.GetKey (KeyCode.A) && !IsCrouched && !GetComponent<Animator> ().GetBool ("isSucking")) {
 
-			transform.Translate (new Vector3 (-1.0f * Time.deltaTime, 0.0f, 0.0f));
-			if (!reversed) {
-				transform.localScale = new Vector3 (transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-				reversed = true;
+			//if (Time.time < _taptime + 0.4f)
+			//    doubletap = true;
+			//else
+			//    _taptime = Time.time;
+			if (Grounded)
+				GetComponent<Animator> ().Play ("WalkingCycle");
+			if (Input.GetKey (KeyCode.LeftShift)) {
+				if (!reversed) {
+					transform.localScale = new Vector3 (transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+					reversed = true;
+				}
+				transform.Translate (new Vector3 (-2.0f * Time.deltaTime, 0.0f, 0.0f));
+				//dashleft();
+			} else {
+				if (!reversed) {
+					transform.localScale = new Vector3 (transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
+					reversed = true;
+				}
+				//while (Input.GetKey(KeyCode.A))
+				transform.Translate (new Vector3 (-1.0f * Time.deltaTime, 0.0f, 0.0f));
 			}
+
 			GetComponent<Animator> ().SetBool ("move", true);
 			if (GetComponent<BoxCollider2D> ().IsTouching (GameObject.Find ("Ground").GetComponent<BoxCollider2D> ()))
 				GetComponent<Animator> ().Play ("WalkingCycle");
@@ -233,7 +245,9 @@ public class KirbyCode : MonoBehaviour {
 			//GetComponent<SpriteRenderer>().sprite = crouching;
 			IsCrouched = true;
 
-		} else if (Input.GetKey (KeyCode.D) && !IsCrouched) {
+		} else if (Input.GetKey (KeyCode.D) && !IsCrouched && !GetComponent<Animator> ().GetBool ("isSucking")) {
+			if (Grounded)
+				GetComponent<Animator> ().Play ("WalkingCycle");
 			if (Input.GetKey (KeyCode.LeftShift)) {
 				transform.Translate (new Vector3 (2.0f * Time.deltaTime, 0.0f, 0.0f));
 				if (reversed) {
@@ -249,21 +263,41 @@ public class KirbyCode : MonoBehaviour {
 				}
 			}
 			GetComponent<Animator> ().SetBool ("move", true);
-			if (GetComponent<BoxCollider2D> ().IsTouching (GameObject.Find ("Ground").GetComponent<BoxCollider2D> ()))
-				GetComponent<Animator> ().Play ("WalkingCycle");
+            
 
 
 		} else {
 			GetComponent<Animator> ().SetBool ("move", false);
 			//GetComponent<Animator>().SetBool("jumping", false);
 			//message = KirbyActions.K_IDLE;
-			if (Grounded == true)
+			if (Grounded == true && !GetComponent<Animator> ().GetBool ("isSucking"))
 				GetComponent<Animator> ().Play ("Idle");
 			IsCrouched = false;
+			if (SuckZone.activeInHierarchy) {   
+				SuckZone.SetActive (false);
+				GetComponent<Animator> ().SetBool ("isSucking", false);
+			}
 		}
 
 		//Action buttons
 		if (Input.GetKey (KeyCode.Space)) {
+			//Sucking Code
+			if (!SuckZone.activeInHierarchy) {
+				SuckZone.SetActive (true);
+				GetComponent<Animator> ().SetBool ("isSucking", true);
+				SuckZone.GetComponent<ParticleSystem> ().Play ();
+				//GetComponent<Animator>().Play("kirbySuck");
+			}
+			//If something in mouth
+			if (MouthFull) {
+				GetComponent<Animator> ().SetBool ("isSucking", false);
+				SuckZone.SetActive (false);
+			}
+			//If player has an ability
+			if (currState > KirbyStates.NORMAL) {
+				//KirbyPowers.SendMessage("KirbyAbility", currState);
+			}
+
 			if (IsCrouched && Input.GetKey (KeyCode.D) && !isSliding) {
 				isSliding = true;
 				localVel.AddForce (new Vector2 (200.0f, 0.0f));
@@ -284,30 +318,26 @@ public class KirbyCode : MonoBehaviour {
 				}
 			}
 
-			//Sucking Code
-			if (!SuckZone.enabled)
-				SuckZone.enabled = true;
-			//If something in mouth
-			if (MouthFull) {
-			}
-			//If player has an ability
-
 			//Extra Button
-			//if(Input.GetKey(KeyCode.RightShift))
-			//{
-			//Release Ability
-			//}  
+			if (Input.GetKey (KeyCode.RightShift)) {
+				//Release Ability
+				currState = KirbyStates.NORMAL;
+            
+			}
+   
 			//SendMessage("DoStuff", message);
 		}
 	}
 
 
-    void EnemySuckedIn(GameObject enemy)
+    void EnemySuckedIn(GameObject enemy, int state)
      {
-        //if()
-        //{
-
-        //}
+        MouthFull = true;
+        enemy.SetActive(false);
+        if(state > 5 && IsCrouched)
+        {
+            currState = (KirbyStates)state;
+        }
      }
 
 }
