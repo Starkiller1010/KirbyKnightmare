@@ -227,8 +227,9 @@ public class KirbyCode : MonoBehaviour {
             //    doubletap = true;
             //else
             //    _taptime = Time.time;
-
-            if (doubletap)
+            if (Grounded)
+                GetComponent<Animator>().Play("WalkingCycle");
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 if (!reversed)
                 {
@@ -262,7 +263,9 @@ public class KirbyCode : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.D) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+                if(Grounded)
+                GetComponent<Animator>().Play("WalkingCycle");
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(new Vector3(2.0f * Time.deltaTime, 0.0f, 0.0f));
                 if (reversed)
@@ -282,8 +285,7 @@ public class KirbyCode : MonoBehaviour {
                 }
             }
             GetComponent<Animator>().SetBool("move", true);
-            if (GetComponent<BoxCollider2D>().IsTouching(GameObject.Find("Ground").GetComponent<BoxCollider2D>()))
-                GetComponent<Animator>().Play("WalkingCycle");
+            
 
 
         }
