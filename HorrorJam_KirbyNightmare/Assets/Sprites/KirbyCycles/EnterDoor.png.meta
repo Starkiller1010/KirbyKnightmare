@@ -1,4 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 7bc5c7277048c7140a4517d73a213c23
+timeCreated: 1445781117
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName: {}
+=======
 guid: cadac94e89c24c94293a9bdb99e4723d
 timeCreated: 1445777982
 licenseType: Free
@@ -9,6 +16,7 @@ TextureImporter:
     21300004: EnterDoor_2
     21300006: EnterDoor_3
     21300008: EnterDoor_4
+>>>>>>> refs/remotes/origin/master
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -31,18 +39,31 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
+<<<<<<< HEAD
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+=======
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
     aniso: 16
+>>>>>>> refs/remotes/origin/master
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+<<<<<<< HEAD
+  allowsAlphaSplitting: 0
+  spriteMode: 1
+=======
   spriteMode: 2
+>>>>>>> refs/remotes/origin/master
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,6 +74,9 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+<<<<<<< HEAD
+    sprites: []
+=======
     sprites:
     - name: EnterDoor_0
       rect:
@@ -104,6 +128,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> refs/remotes/origin/master
   spritePackingTag: 
   userData: 
   assetBundleName: 

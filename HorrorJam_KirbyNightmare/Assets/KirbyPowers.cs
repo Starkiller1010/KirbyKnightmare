@@ -22,13 +22,14 @@ public class KirbyPowers : MonoBehaviour {
 	void AbilitySwitch() {
 		switch (ability) {
 			case KirbyStates.SPARK:
-				CircleCollider2D sparks = Player.gameObject.AddComponent<CircleCollider2D>();
-				sparks.radius = 5;
+				GetComponent<Animator>().Play("Eelectrified");
+				Collider2D sparks = Player.gameObject.AddComponent<Collider2D>();
 				Destroy (sparks);
 				break;
 			case KirbyStates.BEAM:
-				break;
-			case KirbyStates.FIRE:
+				GetComponent<Animator>().Play("Burn");
+				Collider2D beam = Player.gameObject.AddComponent<Collider2D>();
+				Destroy (beam);
 				break;
 			default:
 				break;
