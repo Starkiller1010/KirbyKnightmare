@@ -32,7 +32,6 @@ public class KirbyPowers : MonoBehaviour {
 				break;
 			default:
 				break;
-
 		}
 	}
 }
