@@ -26,6 +26,7 @@ public enum KirbyActions
 }
 public class KirbyAction : MonoBehaviour 
 {
+    GameObject party;
     public KirbyCode Player;
     public int jumpcount = 0;
 
@@ -33,7 +34,7 @@ public class KirbyAction : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+        party = GameObject.Find("SuckZone");
 	}
 	
 	// Update is called once per frame
@@ -92,7 +93,7 @@ public class KirbyAction : MonoBehaviour
             case KirbyActions.K_SUCK:
                 {
                     GameObject Suck = GameObject.Find("SuckZone");
-                    Suck.SetActive(true);
+                    Suck.GetComponent<ParticleSystem>().Play();// SetActive(true);
                     break;
                 }
             case KirbyActions.K_SPIT:
@@ -148,7 +149,9 @@ public class KirbyAction : MonoBehaviour
                 { 
                     GameObject Suck = GameObject.Find("SuckZone");
                     if (Suck.activeSelf)
-                        Suck.SetActive(false);
+                        Suck.GetComponent<ParticleSystem>().Stop();// SetActive(true);
+
+                        //Suck.SetActive(false);
                     break;
                 }
         }
