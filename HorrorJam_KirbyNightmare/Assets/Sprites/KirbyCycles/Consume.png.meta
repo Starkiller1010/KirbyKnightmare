@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 57c672785355d1349be7ed3eb956f2a6
+timeCreated: 1445781215
+=======
 guid: f7de86925263b5d49b75b28290ebde91
 timeCreated: 1445777930
+>>>>>>> refs/remotes/origin/master
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -30,10 +35,17 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
+<<<<<<< HEAD
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+=======
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
+>>>>>>> refs/remotes/origin/master
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -41,6 +53,10 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+<<<<<<< HEAD
+  allowsAlphaSplitting: 0
+=======
+>>>>>>> refs/remotes/origin/master
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
