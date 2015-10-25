@@ -1,9 +1,22 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7bc5c7277048c7140a4517d73a213c23
 timeCreated: 1445781117
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
+=======
+guid: cadac94e89c24c94293a9bdb99e4723d
+timeCreated: 1445777982
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: EnterDoor_0
+    21300002: EnterDoor_1
+    21300004: EnterDoor_2
+    21300006: EnterDoor_3
+    21300008: EnterDoor_4
+>>>>>>> refs/remotes/origin/master
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,19 +39,31 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
+<<<<<<< HEAD
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
     aniso: -1
+=======
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+>>>>>>> refs/remotes/origin/master
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+<<<<<<< HEAD
   allowsAlphaSplitting: 0
   spriteMode: 1
+=======
+  spriteMode: 2
+>>>>>>> refs/remotes/origin/master
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +74,61 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+<<<<<<< HEAD
     sprites: []
+=======
+    sprites:
+    - name: EnterDoor_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnterDoor_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnterDoor_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnterDoor_3
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: EnterDoor_4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> refs/remotes/origin/master
   spritePackingTag: 
   userData: 
   assetBundleName: 
