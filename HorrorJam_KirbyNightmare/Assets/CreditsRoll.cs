@@ -6,11 +6,11 @@ public class CreditsRoll : MonoBehaviour {
 
 	public TextAsset CreditsText;
 
-	public float Speed = 0.1f;
+	public float Speed = 100.1f;
 
 	public int MaxFontSize = 20;
 
-	public GUIStyle TextStyle = new GUIStyle();
+	private GUIStyle TextStyle = new GUIStyle();
 
 	private GameObject creditHolder;
 
@@ -18,11 +18,14 @@ public class CreditsRoll : MonoBehaviour {
 
 	private Transform creditHolderTransform;
 
+	public GUIStyle Font;
+
 	public void Start()
 	{
 		InitializeCreditHolder ();
 		RecalculateFontSize ();
 		PlaceCreditsAtTheScreensBottom ();
+		TextStyle.font = Font.font;
 	}
 
 	public void Update()
@@ -39,6 +42,7 @@ public class CreditsRoll : MonoBehaviour {
 		creditText.anchor = TextAnchor.LowerCenter;
 		creditText.text = GetCreditsText ();
 		creditText.fontStyle = TextStyle.fontStyle;
+		creditText.font = TextStyle.font;
 		creditHolderTransform = creditHolder.transform;
 	}
 
@@ -74,7 +78,7 @@ public class CreditsRoll : MonoBehaviour {
 
 	private string CreatePlaceHolderText()
 	{
-		string placeHolderText = "Gerard is Awesome!";
+		string placeHolderText = "PRODUCER:\t\tJESS BRUMMER\n\n LEAD ARTIST:\t\tJOSE MARRERO\n\nLEAD PROGRAMMER:\t\tGERARD VEGA\n\nPROGRAMMER:\t\tYANGJIE YAO\n\nPROGRAMMER:\t\tWINSTON TODD\n\nPROGRAMMER:\t\tTHADDEUS LATSA\n\nSOUND DESIGNER:\t\tJOHANN SANCHEZ\n\nARTIST:\t\tSUSAN LEE\n\nPROGRAMMER:\t\tWESLY GORIS\n\nGAME OVER SCREEN ART:\t\tJOSH MIRMAN\n\nSPECIAL THANKS\nNINTENDO\nHAL LABRATORY";
 		return placeHolderText;
 	}
 
