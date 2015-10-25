@@ -31,4 +31,6 @@ public class CameraBounds : MonoBehaviour
         v3.y = Mathf.Clamp(v3.y, minY, maxY);
         transform.position = v3;
     }
+
+    
 }
