@@ -203,39 +203,13 @@ public class KirbyCode : MonoBehaviour
             {
                 // message = KirbyActions.K_ENTER_DOOR;
                 //Enter Door Animation
-
                 GetComponent<Animator>().SetBool("Enter", true);
             }
         }
-
-        //if (message != null)
-        //SendMessage("DoStuff", message);
     }
-
-    void JumpDelay()
-    {
-        //Avatar = Airpuff2;
-        GetComponent<Animator>().SetBool("jumping", true);
-
-
-    }
-
-    void dashleft()
-    {
-        while (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
-        }
-    }
-
 
     void FixedUpdate()
     {
-        doubletap = false;
-
-        //float move = Input.GetAxis("Horizontal");
-
-        //anim.SetFloat("move", Mathf.Abs(move));
 
         //WASD controls
         if (Input.GetKeyDown(KeyCode.W))
@@ -281,32 +255,6 @@ public class KirbyCode : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && !IsCrouched && !GetComponent<Animator>().GetBool("isSucking"))
         {
-
-            //if (Time.time < _taptime + 0.4f)
-            //    doubletap = true;
-            //else
-            //    _taptime = Time.time;
-
-            //if (doubletap)
-            //{
-            //    if (!reversed)
-            //    {
-            //        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-            //        reversed = true;
-            //    }
-            //    transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
-            //    //dashleft();
-            //}
-            //else
-            //{
-            //    if (!reversed)
-            //    {
-            //        transform.localScale = new Vector3(transform.localScale.x * -1.0f, transform.localScale.y, transform.localScale.z);
-            //        reversed = true;
-            //    }
-            //   //while (Input.GetKey(KeyCode.A))
-            //        transform.Translate(new Vector3(-1.0f * Time.deltaTime, 0.0f, 0.0f));
-            //}
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(new Vector3(-2.0f * Time.deltaTime, 0.0f, 0.0f));
@@ -398,7 +346,7 @@ public class KirbyCode : MonoBehaviour
         }
 
         //Action buttons
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             //Sucking Code
             if (!SuckZone.GetComponent<BoxCollider2D>().enabled)
@@ -463,7 +411,7 @@ public class KirbyCode : MonoBehaviour
         }
 
         //Extra Button
-        if (Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.Space))
         {
             //Release Ability
             currState = KirbyStates.NORMAL;
@@ -496,8 +444,6 @@ public class KirbyCode : MonoBehaviour
     {
         //Remind Jesse about death
         lives--;
-        transform.Translate(Vector3.up * 2.0f);
-        transform.Translate(Vector3.down * 5.0f);
         if(lives == 0)
             Application.LoadLevel("GameOver");
         else
@@ -508,11 +454,11 @@ public class KirbyCode : MonoBehaviour
     {
         //other.gameObject.SendMessage("LoadNextLevel");
         Debug.Log("EnteringLoad");
-        if (Application.loadedLevelName == "Level1QuickTest")
-            Application.LoadLevel("Level2QuickTest");
-        else if (Application.loadedLevelName == "Level2QuickTest")
-            Application.LoadLevel("Level3QuickTest");
-        else if (Application.loadedLevelName == "Level3QuickTest")
-            Application.LoadLevel("EvilTreeBoss");
+        if (Application.loadedLevelName == "Level1")
+            Application.LoadLevel("Level2");
+        else if (Application.loadedLevelName == "Level2")
+            Application.LoadLevel("Level3");
+        else if (Application.loadedLevelName == "Level3")
+            Application.LoadLevel("EvilBossTree");
     }
 }
